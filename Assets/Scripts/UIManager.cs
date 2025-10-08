@@ -1,63 +1,87 @@
-// UIManager.cs
+// UIManager.cs (Dengan State Management)
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    // 1. Definisikan state yang mungkin untuk UI kita
+    private enum UIState
+    {
+        Hidden,
+        FaceDetected,
+        Scanning,
+        ShowingResult
+    }
+
     [SerializeField] private Button scanButton;
     [SerializeField] private TMP_Text statusText;
+    [SerializeField] private APIPredictor apiPredictor;
 
-    // We'll add a reference to the thing that does the work (API call)
-    // For now, let's pretend it's this manager.
-    // [SerializeField] private APICaller apiCaller;
+    // 2. Buat variabel untuk menyimpan state saat ini
+    private UIState currentState;
+
+    void OnEnable()
+    {
+        APIPredictor.OnPredictionResult += HandlePredictionResult;
+    }
+
+    void OnDisable()
+    {
+        APIPredictor.OnPredictionResult -= HandlePredictionResult;
+    }
 
     void Start()
     {
-        // Add the listener here, in the manager.
         scanButton.onClick.AddListener(OnScanButtonPressed);
-        // Start with the UI hidden
         HideAllUI();
     }
 
     private void OnScanButtonPressed()
     {
+        // 3. Ubah state menjadi Scanning saat tombol ditekan
+        currentState = UIState.Scanning; 
         statusText.text = "Memindai...";
         scanButton.interactable = false;
-
-        // In a real scenario, you'd call a method on another script
-        // to capture the screen or camera feed and send it to your API.
-        // For example: apiCaller.PerformGenderPrediction();
-        
-        // Using the mock result from your original script
-        Invoke("ShowMockResult", 2f);
+        apiPredictor.StartPrediction();
     }
 
+    private void HandlePredictionResult(string result)
+    {
+        // 4. Ubah state menjadi ShowingResult saat hasil diterima
+        currentState = UIState.ShowingResult; 
+        string formattedResult = char.ToUpper(result[0]) + result.Substring(1);
+        UpdateResultText(formattedResult);
+    }
+    
     public void ShowUIForFaceDetected()
     {
+        // 5. INI BAGIAN PENTING:
+        // Jangan lakukan apa pun jika UI sedang sibuk memindai atau menampilkan hasil.
+        if (currentState == UIState.Scanning || currentState == UIState.ShowingResult)
+        {
+            return; // Abaikan panggilan ini
+        }
+
+        // Jika tidak sibuk, lanjutkan seperti biasa dan set state-nya
+        currentState = UIState.FaceDetected;
         statusText.gameObject.SetActive(true);
         statusText.text = "Wajah Terdeteksi! Silakan klik Scan.";
-        
         scanButton.gameObject.SetActive(true);
         scanButton.interactable = true;
     }
 
     public void HideAllUI()
     {
+        // Set state menjadi Hidden saat UI disembunyikan
+        currentState = UIState.Hidden;
         scanButton.gameObject.SetActive(false);
         statusText.gameObject.SetActive(false);
     }
 
-    // This method would be called by your API handler once it gets a result.
     public void UpdateResultText(string result)
     {
-        statusText.text = $"Hasil: {result}";
-        scanButton.interactable = true; // Re-enable the button
-    }
-    
-    // Example function from your original script
-    private void ShowMockResult()
-    {
-        UpdateResultText("Male (Contoh)");
+        statusText.text = $"Hasil Prediksi: {result}";
+        scanButton.interactable = true;
     }
 }
