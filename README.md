@@ -56,7 +56,7 @@ Berikut adalah langkah-langkah build proyek Unity dalam perangkat mobile yaitu:
 * Buka Build Settings: Masuk ke `File > Build Settings`
 * Pilih Platform: Pilih `Android` dan klik `Switch Platform`
 * Konfigurasi Player Settings:
-  * Buka `Edit > Project Settings > Player
+  * Buka `Edit > Project Settings > Player`
   * Di bagian `Other Settings`, pastikan Graphics APIs menyertakan OpenGLES3.
   * Atur Minimum API Level (ubah ke API Level 29).
   * Pastikan Scripting Backend diatur ke IL2CPP dan Target Architectures memuat ARM64.
