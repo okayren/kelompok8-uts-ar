@@ -72,6 +72,8 @@ Model AI berada dalam sisi backend, untuk menggnati model hanya perlu mengubah U
   ```private string apiUrl = "https://your-name-backend-url.hf.space/api/predict";```
 * Simpan Skrip: Simpan perubahan dalam skrip dan aplikasi akan mengirim permintaan ke backend baru.
 
+## 📈 Pembagian Peran Fungsional
+
 | Nama                      | Peran                                                                            |
 | ------------------------- | -------------------------------------------------------------------------------- |
 | Dwikhi Deandra Purnianto  | AI Developer & Tester (Integrasi Model TFLite)                                   |
