@@ -37,7 +37,7 @@ Proyek akan dibagi menjadi dua komponen utama yaitu:
 | Fitur                                 | Deskripsi                                                              |
 | ------------------------------------- | ---------------------------------------------------------------------- |
 | **Face Tracking**      | Melacak wajah pengguna secara real-time menggunakan AR Foundation.          |
-|**Integrai API** | Terhubung dengan backend Python untuk pemrosesan citra dan prediksi gender oleh model AI. |
+|**Integrasi API** | Terhubung dengan backend Python untuk pemrosesan citra dan prediksi gender oleh model AI. |
 |**UI Info & Confidence**           | Menampilkan hasil klasifikasi dan nilai confidence di layar.           |
 |**Splash & Loading Screen**                  | Menampilkan splash screen saat aplikasi pertama kali dijalankan, dilanjutkan animasi loading sebelum kamera aktif.            |
 
