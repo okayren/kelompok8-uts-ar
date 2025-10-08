@@ -71,3 +71,10 @@ Model AI berada dalam sisi backend, untuk menggnati model hanya perlu mengubah U
 * Ubah URL: Cari baris kode dan ganti nilainya dengan URL endpoint API yang baru
   ```private string apiUrl = "https://your-name-backend-url.hf.space/api/predict";```
 * Simpan Skrip: Simpan perubahan dalam skrip dan aplikasi akan mengirim permintaan ke backend baru.
+
+| Nama                      | Peran                                                                            |
+| ------------------------- | -------------------------------------------------------------------------------- |
+| Dwikhi Deandra Purnianto  | AI Developer & Tester (Integrasi Model TFLite)                                   |
+| Karenina Nurmelita Malik  | AR Developer (ARCore Scene & Prefab) & Documentation Lead (README & Laporan PDF) |
+| Zah Rainy Raushana Kuwada | AR Developer (ARCore Scene & Prefab) & Presenter (Presentasi)                    |
+| Auliana Maharani          | UI Developer (Splash, Loading & Result Panel)                                    |
