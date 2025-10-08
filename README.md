@@ -3,10 +3,9 @@
 | Nama | NIM   |
 | ---- | ----- |
 | Karenina Nurmelita Malik   | 2210511089         |
-|     |          |
-|    |  |
-|     |     |
-|    |   |
+| Dwikhi Deandra Purnianto    | 2210511131         |
+| Zah Rainy Raushana Kuwada   | 2210511163 |
+| Auliana Maharani    | 2410511017    |
 
 ## 📖 Deskripsi Proyek
 Aplikasi ini mengimplementasikan Augmented Reality (AR) yang terintegrasi dengan Artificial Intelligence (AI) berbasis platform Unity dan Google ARCore. Aplikasi ini dikembangkan untuk melakukan identifikasi gender dengan mendeteksi wajah pengguna melalui kamera perangkat mobile menggunakan model TensorFlow Lite (.tflite) yang berjalan lokal pada perangkat. Informasi yang disajikan kepada pengguna meliputi:
@@ -33,7 +32,7 @@ Alur kerja sistem dapat diuraikan sebagai berikut:
 | **Face Tracking (ARCore)**      | Melacak wajah pengguna secara real-time untuk posisi overlay.          |
 |**Gender Classification (TFLite)** | Mengklasifikasikan gender dari input wajah menggunakan model AI lokal. |
 |**UI Info & Confidence**           | Menampilkan hasil klasifikasi dan nilai confidence di layar.           |
-|**Splash & Loading Screen**                  | Menampilkan logo saat aplikasi pertama kali dijalankan, dilanjutkan animasi loading sebelum kamera aktif.            |
+|**Splash & Loading Screen**                  | Menampilkan splash screen saat aplikasi pertama kali dijalankan, dilanjutkan animasi loading sebelum kamera aktif.            |
 |**Total Detection Counter**        | Menghitung jumlah orang yang sudah terdeteksi selama sesi berlangsung.             |
 
 ## 💻 Development Tools
